@@ -20,3 +20,7 @@
    - 모델 학습을 통한 입지분석
 4. 대시보드 제작
    - streamlit을 통한 웹페이지 제작
+
+```
+import pandas as pd
+'''
