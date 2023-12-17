@@ -7,4 +7,4 @@ geopandas
 streamlit_folium
 matplotlib
 wordcloud
-streamlit_option_menu 
+streamlit_option_menu
