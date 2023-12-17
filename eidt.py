@@ -149,7 +149,7 @@ def show_species_data():
 
 st.title('대전 맥도날드 입지 분석')
 # layout
-st.set_page_config(layout="wide") # 꽉찬 화면
+#st.set_page_config(layout="wide") # 꽉찬 화면
 
 
 # Main app
