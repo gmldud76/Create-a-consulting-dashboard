@@ -158,13 +158,6 @@ def main():
         show_home()
     elif app_mode == "감성 분석":
         show_species_data()
-        
-'''with st.sidebar:
-        choice = app_mode("분석 페이지를 골라주세요.",["입지 분석", "감성 분석"],
-                               icons = ['bar-chart', 'kanban'],
-                               menu_icon = "bi bi-menu-up", default_index=0,
-                               styles={
-                "icon":{"color":"orange","font-size":"25px"}})'''
     
 if __name__ == "__main__":
     main()
