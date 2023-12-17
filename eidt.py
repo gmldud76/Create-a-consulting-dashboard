@@ -43,11 +43,12 @@ def location_show():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
     st_folium(m,height=575,width=725)
 
-    col1,col2 = st.columns([2,2])
+    
+    '''col1,col2 = st.columns([2,2])
     with col1 :
         st.dataframe(df1)
     with col2 :
-        st.dataframe(df2)
+        st.dataframe(df2)'''
 
 # Define function to show data for selected species
 def show_species_data():
@@ -135,16 +136,20 @@ def show_species_data():
     kewyword_plot.update_traces(text=keyword_data['count'], textposition='top center', textfont=dict(size=12))
 
     st.dataframe(review_data,use_container_width=True)
-    st.plotly_chart(lineplot)
-    st.plotly_chart(kewyword_plot)
+    #st.plotly_chart(lineplot)
+    #st.plotly_chart(kewyword_plot)
 
-    col3,col4 = st.columns([2,2])
+    col1, col2, col3, col4 = st.columns([0.2,0.2,0.2,0.2])
+    with col1 :
+        st.plotly_chart(lineplot)
+    with col2 :
+        st.plotly_chart(emotionplot)
     with col3 :
         st.pyplot(fig1)
     with col4 :
         st.pyplot(fig2)
     
-    st.plotly_chart(emotionplot)
+    #st.plotly_chart(emotionplot)
 
 
 st.title('대전 맥도날드 입지 분석')
@@ -154,11 +159,6 @@ st.title('대전 맥도날드 입지 분석')
 
 # Main app
 def main():
-
-    with con1 :
-        location_show()
-    with con2:
-        show_species_data()
     
 if __name__ == "__main__":
     main()
