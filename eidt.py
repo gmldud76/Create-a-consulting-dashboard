@@ -34,10 +34,8 @@ best_grid.geometry = best_grid.geometry.to_crs("EPSG:4326")
 best_grid.drop(columns=['lbl','val'],inplace=True)
 best_grid = best_grid[(best_grid['gid'] == '다바9314') | (best_grid['gid'] == '다바9415') | (best_grid['gid'] == '다바8817') | (best_grid['gid'] == '다바8915')]
 
-# Define function to show home screen
-def show_home():
-    st.title('대전 맥도날드 입지 분석')
-    st.write(' ')
+# Location
+def location_show():
     m = folium.Map(location=[36.3504, 127.3845], zoom_start=12)
     for index, row in best_grid.iterrows():
         folium.GeoJson(row['geometry']).add_to(m)
@@ -45,8 +43,6 @@ def show_home():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
     st_folium(m,height=575,width=725)
 
-###
-def gid_df(): 
     col1,col2 = st.columns([2,2])
     with col1 :
         st.dataframe(df1)
@@ -55,7 +51,7 @@ def gid_df():
 
 # Define function to show data for selected species
 def show_species_data():
-    select_species = st.selectbox(
+    select_species = st.sidebar.selectbox(
         '지점을 골라주세요.',
         ['유성DT점', '카이스트점', '가수원DT점', '가장DT점', '한남대DT점', '세이브존_대전점', '센트럴DT점', '대전터미널점', '부사DT점', '신탄진DT점', '유천DT점', '목원대점']
     )
@@ -70,8 +66,7 @@ def show_species_data():
                         markers=True,
                         title= select_species+" 년월별 데이터 개수",
                         labels={'x': 'YearMonth', 'y': 'Data Count'})
-
-def word_df():
+    
     # 감정분석
     emotion_score = emotion[emotion.index == select_species]['ratio'].values[0] * 100
     emotionplot = go.Figure(go.Indicator(mode="gauge+number",
@@ -151,28 +146,20 @@ def word_df():
     
     st.plotly_chart(emotionplot)
 
+
+
+st.title('대전 맥도날드 입지 분석')
 # layout
 st.set_page_config(layout="wide") # 꽉찬 화면
-con1, con2 = st.columns([0.3,0.7])
-con3, con4, con5 = st.columns([0.3,0.3,0.4])
 
 
 # Main app
 def main():
 
     with con1 :
-        show_home()
+        location_show()
     with con2:
-        gid_df()
-    with con3:
-        
-    #st.title('못난이 삼남매')
-    #app_mode = st.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
-
-    #if app_mode == "입지 분석":
-        show_home()
-    #elif app_mode == "감성 분석":
-        #show_species_data()
+        show_species_data()
     
 if __name__ == "__main__":
     main()
