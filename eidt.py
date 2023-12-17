@@ -52,7 +52,7 @@ def location_show():
 
 # Define function to show data for selected species
 def show_species_data():
-    select_species = st.sidebar.selectbox(
+    select_species = st.selectbox(
         '지점을 골라주세요.',
         ['유성DT점', '카이스트점', '가수원DT점', '가장DT점', '한남대DT점', '세이브존_대전점', '센트럴DT점', '대전터미널점', '부사DT점', '신탄진DT점', '유천DT점', '목원대점']
     )
