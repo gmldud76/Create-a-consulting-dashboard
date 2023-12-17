@@ -148,6 +148,17 @@ def show_species_data():
     
     st.plotly_chart(emotionplot)
 
+# Main app
+def main():
+    st.title('못난이 삼남매')
+    app_mode = st.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
 
+    if appmode == "입지 분석":
+        show_home()
+    elif appmode == "감성 분석":
+        show_species_data()
+    
+if __name__ == "__main__":
+    main()
 
 
