@@ -45,6 +45,8 @@ def show_home():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
     st_folium(m,height=575,width=725)
 
+###
+def gid_df(): 
     col1,col2 = st.columns([2,2])
     with col1 :
         st.dataframe(df1)
@@ -68,7 +70,8 @@ def show_species_data():
                         markers=True,
                         title= select_species+" 년월별 데이터 개수",
                         labels={'x': 'YearMonth', 'y': 'Data Count'})
-    
+
+def word_df():
     # 감정분석
     emotion_score = emotion[emotion.index == select_species]['ratio'].values[0] * 100
     emotionplot = go.Figure(go.Indicator(mode="gauge+number",
@@ -148,15 +151,28 @@ def show_species_data():
     
     st.plotly_chart(emotionplot)
 
+# layout
+st.set_page_config(layout="wide") # 꽉찬 화면
+con1, con2 = st.columns([0.3,0.7])
+con3, con4, con5 = st.columns([0.3,0.3,0.4])
+
+
 # Main app
 def main():
-    st.title('못난이 삼남매')
-    app_mode = st.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
 
-    if app_mode == "입지 분석":
+    with con1 :
         show_home()
-    elif app_mode == "감성 분석":
-        show_species_data()
+    with con2:
+        gid_df()
+    with con3:
+        
+    #st.title('못난이 삼남매')
+    #app_mode = st.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
+
+    #if app_mode == "입지 분석":
+        show_home()
+    #elif app_mode == "감성 분석":
+        #show_species_data()
     
 if __name__ == "__main__":
     main()
