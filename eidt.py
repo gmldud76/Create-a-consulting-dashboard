@@ -34,6 +34,8 @@ best_grid.geometry = best_grid.geometry.to_crs("EPSG:4326")
 best_grid.drop(columns=['lbl','val'],inplace=True)
 best_grid = best_grid[(best_grid['gid'] == '다바9314') | (best_grid['gid'] == '다바9415') | (best_grid['gid'] == '다바8817') | (best_grid['gid'] == '다바8915')]
 
+st.set_page_config(layout="wide")
+
 # Location
 def location_show():
     m = folium.Map(location=[36.3504, 127.3845], zoom_start=11)
@@ -42,7 +44,6 @@ def location_show():
     for idx, row in dong.iterrows():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
      #st_folium(m,height=575,width=725)
-    st.set_page_config(layout="wide")
 
     col, col1, col2 = st.columns([5,2,2])
     with col :
