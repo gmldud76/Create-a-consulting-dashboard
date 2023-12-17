@@ -143,7 +143,7 @@ def show_species_data():
     #st.plotly_chart(lineplot)
     #st.plotly_chart(kewyword_plot)
 
-    col1, col2, col3, col4 = st.columns([2.5,1,1,1])
+    col1, col2, col3, col4 = st.columns([2,0.5,1,1])
     with col1 :
         st.plotly_chart(lineplot)
     with col2 :
