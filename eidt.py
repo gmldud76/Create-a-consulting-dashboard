@@ -45,7 +45,7 @@ def location_show():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
      #st_folium(m,height=575,width=725)
 
-    col, col1, col2 = st.columns([5,2,2])
+    col, col1, col2 = st.columns([5,3,2])
     with col :
         st_folium(m,height=575,width=725)
     with col1 :
