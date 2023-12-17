@@ -44,11 +44,11 @@ def location_show():
     st_folium(m,height=575,width=725)
 
     
-    '''col1,col2 = st.columns([2,2])
+    col1,col2 = st.columns([2,2])
     with col1 :
         st.dataframe(df1)
     with col2 :
-        st.dataframe(df2)'''
+        st.dataframe(df2)
 
 # Define function to show data for selected species
 def show_species_data():
@@ -158,10 +158,11 @@ st.title('대전 맥도날드 입지 분석')
 
 
 # Main app
-#def main():
-
+def main():
+    st.write(location_show())
+    st.write(show_species_data())
     
-#if __name__ == "__main__":
+if __name__ == "__main__":
     #main()
 
 
