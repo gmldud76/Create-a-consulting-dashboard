@@ -9,6 +9,7 @@ from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from matplotlib import font_manager
+import streamlit_option_menu import option_menu
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -155,7 +156,7 @@ def main():
     #app_mode = st.sidebar.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
     appmode = st.sidebar.radio("분석 페이지를 골라주세요.", ["입지 분석", "감성 분석"])
     with st.sidebar:
-        choice = appmode_menu("분석 페이지를 골라주세요.",["입지 분석", "감성 분석"],
+        choice = option_menu("분석 페이지를 골라주세요.",["입지 분석", "감성 분석"],
                                icons = ['bar-chart', 'kanban'],
                                menu_icon = "bi bi-menu-up", default_index=0,
                                styles={
