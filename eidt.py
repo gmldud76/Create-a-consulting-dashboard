@@ -42,6 +42,7 @@ def location_show():
     for idx, row in dong.iterrows():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
      #st_folium(m,height=575,width=725)
+    st.set_page_config(layout="wide")
 
     col, col1, col2 = st.columns([5,2,2])
     with col :
