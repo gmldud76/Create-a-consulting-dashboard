@@ -62,7 +62,7 @@ def show_species_data():
     )
 
     st.title(select_species+'   감정 분석')
-    st.write('데이터')
+    #st.write('데이터')
     # 리뷰 월별
     review_data = review[review['지점명'] == select_species]
     review_counts = review_data['YearMonth'].value_counts().sort_index()
@@ -143,7 +143,7 @@ def show_species_data():
     #st.plotly_chart(lineplot)
     #st.plotly_chart(kewyword_plot)
 
-    col1, col2, col3, col4 = st.columns([0.2,0.2,0.2,0.2])
+    col1, col2, col3, col4 = st.columns([3,2,2,2])
     with col1 :
         st.plotly_chart(lineplot)
     with col2 :
