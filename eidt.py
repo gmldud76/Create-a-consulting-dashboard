@@ -147,7 +147,6 @@ def show_species_data():
     st.plotly_chart(emotionplot)
 
 
-
 st.title('대전 맥도날드 입지 분석')
 # layout
 st.set_page_config(layout="wide") # 꽉찬 화면
