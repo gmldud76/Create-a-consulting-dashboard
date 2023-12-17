@@ -95,7 +95,7 @@ def show_species_data():
 
     wordcloud1 = WordCloud(font_path = font_path, width=400, height=400, background_color='white').generate_from_frequencies(dict(zip(words_count_df['word'], words_count_df['count'])))
     
-    fig1 = plt.figure(figsize=(5, 5))
+    fig1 = plt.figure(figsize=(3, 3))
     plt.title(select_species+"의 부정 단어 워드클라우드", fontproperties=prop)
     plt.imshow(wordcloud1, interpolation='bilinear')
     plt.axis('off')
@@ -115,7 +115,7 @@ def show_species_data():
 
     wordcloud2 = WordCloud(font_path = font_path, width=400, height=400, background_color='white').generate(' '.join(words_df1['content']))
 
-    fig2 = plt.figure(figsize=(5, 5))
+    fig2 = plt.figure(figsize=(3, 3))
     plt.title(select_species+"의 부정 단어 워드클라우드", fontproperties=prop)
     plt.imshow(wordcloud2, interpolation='bilinear')
     plt.axis('off')
