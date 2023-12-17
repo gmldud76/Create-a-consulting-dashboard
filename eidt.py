@@ -158,9 +158,10 @@ st.title('대전 맥도날드 입지 분석')
 
 
 # Main app
-def main():
+#def main():
+
     
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+    #main()
 
 
