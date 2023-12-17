@@ -36,7 +36,7 @@ best_grid = best_grid[(best_grid['gid'] == '다바9314') | (best_grid['gid'] == 
 
 # Location
 def location_show():
-    m = folium.Map(location=[36.3504, 127.3845], zoom_start=12)
+    m = folium.Map(location=[36.3504, 127.3845], zoom_start=10)
     for index, row in best_grid.iterrows():
         folium.GeoJson(row['geometry']).add_to(m)
     for idx, row in dong.iterrows():
