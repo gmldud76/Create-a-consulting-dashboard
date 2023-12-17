@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from matplotlib import font_manager
-import streamlit_option_menu import option_menu
+from streamlit_option_menu import option_menu
 import warnings
 warnings.filterwarnings('ignore')
 
