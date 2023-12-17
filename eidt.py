@@ -41,11 +41,11 @@ def location_show():
         folium.GeoJson(row['geometry']).add_to(m)
     for idx, row in dong.iterrows():
         folium.Marker([row['위도'], row['경도']], popup=row['Name']).add_to(m)
-    m_1 = st_folium(m,height=575,width=725)
+     #st_folium(m,height=575,width=725)
 
-    col, col1,col2 = st.columns([2,2,2])
+    col, col1, col2 = st.columns([2,2,2])
     with col :
-        m_1
+        st_folium(m,height=575,width=725)
     with col1 :
         st.dataframe(df1)
     with col2 :
